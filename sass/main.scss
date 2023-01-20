@@ -1,0 +1,117 @@
+// GOOGLE FONTS
+@import url("https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@500;700;900&display=swap");
+
+/*
+font-family: 'Red Hat Display', sans-serif;
+*/
+
+// COLORS
+$clr-primary: hsl(245, 75%, 52%);
+$clr-secondary: hsl(225, 100%, 94%);
+
+$clr-neutral-100: hsl(225, 100%, 98%);
+$clr-neutral-400: hsl(224, 23%, 55%);
+$clr-neutral-900: hsl(223, 47%, 23%);
+
+// RESET
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+img {
+  max-width: 100%;
+  display: block;
+}
+p {
+  line-height: 1.6;
+  color: $clr-neutral-400;
+}
+
+// utitlities
+@mixin buttonHoverEffect($bg: $clr-primary, $color: #fff) {
+  background-color: lighten($bg, 5%);
+  color: $color;
+}
+.button {
+  padding: 0.7rem 1rem;
+  text-decoration: none;
+  color: #000;
+  font-weight: 700;
+  border-radius: 0.5rem;
+  &--primary {
+    background-color: $clr-primary;
+    color: #fff;
+    box-shadow: 0px 9px 19px -8px rgb(56 41 224);
+    transition: 0.3s;
+    &:hover {
+      @include buttonHoverEffect;
+    }
+  }
+  &--secondary {
+    padding-top: 0;
+    color: $clr-neutral-400;
+  }
+}
+// General Styling
+body {
+  background-image: url("../images/pattern-background-desktop.svg");
+  background-repeat: no-repeat;
+  background-color: $clr-secondary;
+  display: grid;
+  place-content: center;
+  min-height: 100vh;
+  font-family: "Red Hat Display", sans-serif;
+  padding: 3rem 1rem;
+}
+.card {
+  $card-padding: 1rem;
+  $card-spacing: 1rem;
+  $card-bd-radius: 1rem;
+  //   box-shadow: 0px 0px 1px 1px rgba($clr-primary, 0.8);
+  display: grid;
+  gap: $card-spacing;
+  text-align: center;
+  max-width: 25rem;
+  border-radius: $card-bd-radius;
+  overflow: hidden;
+  background-color: #fff;
+  &__content {
+    display: grid;
+    gap: $card-spacing;
+    padding: $card-padding;
+  }
+
+  .package {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: $card-padding;
+    background-color: $clr-neutral-100;
+    border-radius: $card-bd-radius;
+    padding: 0.5rem $card-padding;
+    .plan {
+      display: flex;
+      gap: 1rem;
+    }
+    &__title {
+      font-size: 1rem;
+    }
+    &__button {
+      border-bottom: 1px solid $clr-primary;
+      border-radius: 0;
+      padding: 0;
+      color: $clr-primary;
+      font-size: 1rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: 0.3s;
+      &:hover {
+        color: lighten($clr-primary, 10%);
+        border: 0;
+      }
+    }
+  }
+}
